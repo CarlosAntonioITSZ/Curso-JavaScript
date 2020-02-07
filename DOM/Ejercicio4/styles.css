@@ -1,0 +1,10 @@
+img{
+    transition: 300ms all;
+}
+.pequeño{
+    width: 200px;
+}
+
+.grande{
+    width: 600px;
+}
