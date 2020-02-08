@@ -15,33 +15,28 @@
     }
 
     var agregarTarea = function(){
-        var icon = document.createElement("p");
-        icon.setAttribute("class","icono"); 
-        var conntenidoIcono = document.createTextNode("-");
-        var nuevaTarea = document.createElement("li");
-
-        var contenido = document.createTextNode(formulario.tarea.value);
+        var icon = document.createElement("p"); //CREANDO UN NUEVO ICONO 
+        icon.setAttribute("class","icono"); //AÑADIENDO LA CLASE ICONO  A NUESTRO NUEVO ICONO
+        var conntenidoIcono = document.createTextNode("-"); //AÑADIMOS EL CONTENIDO QUE TENDRA NUESTRO ICONO
+        icon.appendChild(conntenidoIcono); // AGREGAMOS EL CONTENIDO DEL ICONO  A NUESTRO ICONO
 
 
-        if (comprobarInput() == false){
+        var nuevaTarea = document.createElement("li");//CREAMOS UNA NUEVA TAREA
+        var contenido = document.createTextNode(formulario.tarea.value);//AÑADIMOS CONTENIDO A LA TAREA
+
+
+        if (comprobarInput() == false){//COMPROBAMOS QUE EL USUARIO HAYA INGRESADO ALGUNA TAREA, DE NO SE ASI NO SE PODRA CONTINUAR 
             return false;
         }
         
-
-        icon.appendChild(conntenidoIcono);
-
-
-
         icon.addEventListener("click", function(){
             lista.removeChild(nuevaTarea);
         });
 
-
-
-        nuevaTarea.appendChild(contenido);
-        nuevaTarea.appendChild(icon);
-        lista.appendChild(nuevaTarea);
-        formulario.tarea.value="";
+        nuevaTarea.appendChild(contenido); //AGREGAMOS EL CONTENIDO A NUESTRA TAREA
+        nuevaTarea.appendChild(icon);//AGREGAMOS EL ICONO A NUESTRA TAREA
+        lista.appendChild(nuevaTarea);//AGREGAMOS LA NUESTRA TAREA A LA LISTA
+        formulario.tarea.value=""; //DEJANDO EL INPUT VACIO
      
     }
 
